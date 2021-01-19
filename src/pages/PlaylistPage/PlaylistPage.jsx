@@ -1,47 +1,47 @@
 import React, { useState, useEffect } from "react";
 import "./PlaylistPage.css";
+import SnakeGame from "../../components/Snake/Snake"
 import { Route, NavLink, useHistory } from "react-router-dom";
 import PlaylistCard from "../../components/PlaylistCard/PlaylistCard";
 import * as playlistAPI from "../../services/playlists-api";
 import EditPlaylistCard from "../../components/EditPlaylistCard/EditPlaylistCard";
 import AddPlaylistCard from "../../components/AddPlaylistCard/AddPlaylistCard";
-import SnakeGame from "../../components/Snake/Snake"
 import { useStateWithCallback } from "../../hooks/useStateWithCallback";
 
 // This is our playlist list page! All our functions will live here, and we'll pass from props to components. Here we import all the things we are exporting from all our pages
 function PlaylistPage(props) {
     // Creating state for playlist
-    const [playlists, setPlaylists] = useState([]);
-    const history = useHistory();
-    useEffect(() => {
-      // This is listening for changes in playlists state, then the function below will reroute
-      history.push("/playlistpage");
-    }, [playlists, history]);
-    // Add a playlist
-    async function handleAddPlaylist(newPlaylistData) {
-      const newPlaylist = await playlistAPI.create(newPlaylistData);
-      setPlaylists((playlists) => [...playlists, newPlaylist]);
-    }
-    // Update a playlist
-    async function handleUpdatePlaylist(updatedPlaylistData) {
-      const updatedPlaylist = await playlistAPI.update(updatedPlaylistData);
-      const newPlaylistsArray = playlists.map((p) =>
-        p._id === updatedPlaylist._id ? updatedPlaylist : p
-      );
-      setPlaylists(newPlaylistsArray);
-    }
-    // Delete a playlist
-    async function handleDeletePlaylist(id) {
-      await playlistAPI.deleteOne(id);
-      setPlaylists(playlists.filter((p) => p._id !== id));
-    }
-    /*--- Lifecycle Methods ---*/
-    useEffect(() => {
-      (async function () {
-        const playlists = await playlistAPI.getAll();
-        setPlaylists(playlists);
-      })();
-    }, []);
+    // const [playlists, setPlaylists] = useState([]);
+    // const history = useHistory();
+    // useEffect(() => {
+    //   // This is listening for changes in playlists state, then the function below will reroute
+    //   history.push("/playlistpage");
+    // }, [playlists, history]);
+    // // Add a playlist
+    // async function handleAddPlaylist(newPlaylistData) {
+    //   const newPlaylist = await playlistAPI.create(newPlaylistData);
+    //   setPlaylists((playlists) => [...playlists, newPlaylist]);
+    // }
+    // // Update a playlist
+    // async function handleUpdatePlaylist(updatedPlaylistData) {
+    //   const updatedPlaylist = await playlistAPI.update(updatedPlaylistData);
+    //   const newPlaylistsArray = playlists.map((p) =>
+    //     p._id === updatedPlaylist._id ? updatedPlaylist : p
+    //   );
+    //   setPlaylists(newPlaylistsArray);
+    // }
+    // // Delete a playlist
+    // async function handleDeletePlaylist(id) {
+    //   await playlistAPI.deleteOne(id);
+    //   setPlaylists(playlists.filter((p) => p._id !== id));
+    // }
+    // /*--- Lifecycle Methods ---*/
+    // useEffect(() => {
+    //   (async function () {
+    //     const playlists = await playlistAPI.getAll();
+    //     setPlaylists(playlists);
+    //   })();
+    // }, []);
 
     return (
       <>
@@ -51,7 +51,7 @@ function PlaylistPage(props) {
         <div>
           <h1> Play to your heart's contempt</h1>
           <SnakeGame />
-          <>
+          {/* <>
           {playlists.map(playlist => (
            <p>
            <PlaylistCard
@@ -69,8 +69,8 @@ function PlaylistPage(props) {
           <>
           <AddPlaylistCard
            handleAddPlaylist={handleAddPlaylist}
-           />
-          </>
+           /> */}
+          {/* </> */}
         </div>
       </>
     );

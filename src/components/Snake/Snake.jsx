@@ -13,7 +13,7 @@ class SnakeGame extends React.Component {
       height: 0,
       blockWidth: 0,
       blockHeight: 0,
-      gameLoopTimeout: 400,
+      gameLoopTimeout: 100,
       timeoutId: 0,
       startSnakeSize: 0,
       snake: [],
@@ -154,11 +154,19 @@ class SnakeGame extends React.Component {
   }
 
   getRandomColor() {
-    let hexa = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) color += hexa[Math.floor(Math.random() * 16)];
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = "70%";
+    const lightness = "80%";
+    let color = `hsl(${hue}, ${saturation}, ${lightness})`;
     return color;
-  }
+  };
+
+  // getRandomColor() {
+  //   let hexa = "0123456789ABCDEF";
+  //   let color = "#";
+  //   for (let i = 0; i < 6; i++) color += hexa[Math.floor(Math.random() * 16)];
+  //   return color;
+  // }
 
   moveSnake() {
     let snake = this.state.snake;
@@ -408,16 +416,16 @@ class SnakeGame extends React.Component {
           {this.state.score}
         </div>
         <div class="controls">
-          <button class="control-button" id="left" onClick={() => this.goLeft()}>
+          <button className="control-button" id="left" onClick={() => this.goLeft()}>
             ⬅
           </button>
-          <button class="control-button" id="up" onClick={() => this.goUp()}>
+          <button className="control-button" id="up" onClick={() => this.goUp()}>
             ⬆
           </button>
-          <button class="control-button" id="down" onClick={() => this.goDown()}>
+          <button className="control-button" id="down" onClick={() => this.goDown()}>
             ⬇
           </button>
-          <button class="control-button" id="right" onClick={() => this.goRight()}>
+          <button className="control-button" id="right" onClick={() => this.goRight()}>
             ➡
           </button>
         </div>
