@@ -18,11 +18,11 @@
   border: none;
   width: 100vw;
   border-radius: 50%;
-
 }
 
 
 .mt-text {
+  margin-left: 5%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,3 +1,7 @@
+/* body {
+  background-color: pink;
+} */
+
 .metime-list-container {
   background-color: pink;
   display: flex;
@@ -6,7 +10,7 @@
   flex-flow: column;
   width: 100vw;
   padding-bottom: 200px;
-
+  min-width: 100vw;
 }
 
 .metime-page-head {
@@ -15,12 +19,14 @@
   color: rgb(187, 88, 88);
   font-size: 4rem;
 }
+
 .metime-pic-container{
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
+
 .metime-pic {
   border-radius: 50%;
   height: 300px;

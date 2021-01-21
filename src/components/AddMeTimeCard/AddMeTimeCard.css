@@ -1,5 +1,7 @@
 .add-metime-container{
-    margin: 20px 15px;
+    margin: 20px 20vw 0 20vw;
+    max-width: 80%;
+    align-items: center;
 }
 
 .metime-input{
