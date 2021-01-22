@@ -1,31 +1,40 @@
-
 a {
-    color: black;
-    text-decoration: none;
- 
-
+	
+	color: rgb(100, 94, 94);
+	text-decoration: none;
+	font-family: Helvetica, sans-serif;
 }
 a:hover {
-    color: blue;
+	color: rgb(135, 135, 155);
 }
 
-/* .navbar{
+.navbar{
     display:flex;
     justify-content: center;
     border-top: 2px grey solid;
-} */
-
-li{
-    list-style: none;
-    margin: 10px;
 }
 
-ul{
-    display: flex;
-    flex-flow: row wrap;
+li {
+	list-style: none;
+	margin: 10px;
 }
 
-.navlink{
-    
+ul {
+	display: flex;
+	flex-flow: row wrap;
 }
 
+.navlink {
+}
+
+.Logo {
+    /* border: solid; */
+	margin: .5rem;
+	padding: 5px;
+	border-radius: 35%;
+}
+
+#NavBar {
+
+	background-color: rgb(1, 158, 158);
+}

@@ -1,18 +1,30 @@
-import React, { Component, useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
+import EditAffirmationCard from "../EditAffirmationCard/EditAffirmationCard";
 import "./AffirmationCard.css";
 
-function AffirmationCard({ affirmation, handleDeleteAffirmation }) {
+function AffirmationCard({ user, handleUpdateAffirmation, affirmation, handleDeleteAffirmation }) {
 
     return (
         <>
-            <div>
-                <div>
+            <div id="af-card-container"className="af-card-container">
+            <div className="card a-card">
+            <div className="card-header a-header">
+            Affirmation
+          </div>
+                <div className="card-text a-text">
                     <p>{affirmation.text}</p>
                 </div>
             </div>
             <div>
-                <button onClick={() => handleDeleteAffirmation(affirmation._id)}>DELETE</button>
+                <button className="btn af-delete" onClick={() => handleDeleteAffirmation(affirmation._id)}>-</button>
+            </div>
+            <>
+            <EditAffirmationCard
+                affirmation={affirmation}
+                handleUpdateAffirmation={handleUpdateAffirmation}
+                key={affirmation._id}
+              />
+            </>
             </div>
         </>
     )

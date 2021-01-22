@@ -23,6 +23,7 @@
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
+    "react-simple-snake": "^0.2.2",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
@@ -46,5 +47,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "eslint-plugin-react": "^7.22.0",
+    "json-loader": "^0.5.7"
+  }
 }

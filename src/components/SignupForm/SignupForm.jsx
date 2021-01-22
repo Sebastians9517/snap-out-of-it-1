@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
 
+
+
 class SignupForm extends Component {
   state = {
     name: "",
@@ -40,8 +42,11 @@ class SignupForm extends Component {
       <div>
         <h3 className="login-text h2">Sign Up</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name</label>
-          <input className="form-control form-control-sm"
+          <div className="white">
+          <label className="name">Name</label>
+          </div>
+          <input
+            className="form-control form-control-sm"
             type="text"
             autoComplete="off"
             id="name"
@@ -49,9 +54,12 @@ class SignupForm extends Component {
             name="name"
             onChange={this.handleChange}
           />
-          <br/>
+          <br />
+          <div className="white">
           <label htmlFor="email">Email</label>
-          <input className="form-control form-control-sm"
+          </div>
+          <input
+            className="form-control form-control-sm"
             type="text"
             autoComplete="off"
             id="email"
@@ -59,9 +67,12 @@ class SignupForm extends Component {
             name="email"
             onChange={this.handleChange}
           />
-          <br/>
-          <label htmlFor="password">Password</label>
-          <input className="form-control form-control-sm"
+          <br />
+          <div className="white">
+          <label htmlFor="password white">Password</label>
+          </div>
+          <input
+            className="form-control form-control-sm"
             type="password"
             autoComplete="off"
             id="password"
@@ -69,9 +80,12 @@ class SignupForm extends Component {
             name="password"
             onChange={this.handleChange}
           />
-         <br/>
-         <label htmlFor="confirm">Confirm Password</label>
-          <input className="form-control form-control-sm"
+          <br />
+          <div className="white">
+          <label htmlFor="confirm white">Confirm Password</label>
+          </div>
+          <input
+            className="form-control form-control-sm"
             type="password"
             autoComplete="off"
             id="confirm"
@@ -79,10 +93,17 @@ class SignupForm extends Component {
             name="passwordConf"
             onChange={this.handleChange}
           />
-         <br/>
-          <button  className="buttons btn btn-light" disabled={this.isFormInvalid()}>Sign Up</button>
-         
-          <Link className="buttons btn btn-light" to="/">Cancel</Link>
+          <br />
+          <button
+            className="buttons btn btn-light"
+            disabled={this.isFormInvalid()}
+          >
+            Sign Up
+          </button>
+
+          <Link className="buttons btn btn-light" to="/">
+            Cancel
+          </Link>
         </form>
       </div>
     );

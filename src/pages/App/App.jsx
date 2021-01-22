@@ -4,13 +4,12 @@ import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import Users from '../Users/Users'
-import HomePage from "../HomePage/HomePage"
-import MantraPage from "../MantraPage/MantraPage"
-import DealBreakerPage from "../DealBreakerPage/DealBreakerPage"
-import MeTimePage from "../MeTimePage/MeTimePage"
-import AffirmationsPage from "../AffirmationsPage/AffirmationsPage"
-import PlaylistPage from "../PlaylistPage/PlaylistPage"
+import HomePage from "../HomePage/HomePage";
+import MantraPage from "../MantraPage/MantraPage";
+import DealBreakerPage from "../DealBreakerPage/DealBreakerPage";
+import MeTimePage from "../MeTimePage/MeTimePage";
+import AffirmationsPage from "../AffirmationsPage/AffirmationsPage";
+import SnakePage from "../SnakePage/SnakePage";
 import "./App.css";
 
 // This App page is rendering all the components that were imported above into the page.
@@ -30,19 +29,22 @@ class App extends Component {
   };
 
   render() {
-    const { user } = this.state
+    const { user } = this.state;
     return (
       <>
-        <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Route
           exact
           path="/"
-          render={() => (
-            <main>
-              <HomePage />
-              <h1>Home Page(App.js).</h1>
-            </main>
-          )}
+          render={() =>
+            user ? (
+              <main>
+                <HomePage user={this.state.user} />
+              </main>
+            ) : (
+              <Redirect to="/Login" />
+            )
+          }
         />
         <Route
           exact
@@ -56,7 +58,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/login"
+          path="/Login"
           render={({ history }) => (
             <Login
               history={history}
@@ -64,28 +66,62 @@ class App extends Component {
             />
           )}
         />
+      
         <Route
           exact
-          path="/users"
+          path="/mantra-page"
           render={() =>
-            user ? <Users /> : <Redirect to="/login" />
+            user ? (
+              <MantraPage user={this.state.user} />
+            ) : (
+              <Redirect to="/Login" />
+            )
           }
         />
-          <Route exact path="/mantrapage" render={() =>
-                    <MantraPage/>
-                }/>
-          <Route exact path="/dealbreakerpage" render={() =>
-                    <DealBreakerPage/>
-                }/>
-          <Route exact path="/metimepage" render={() =>
-                    <MeTimePage/>
-                }/>
-          <Route exact path="/affirmationpage" render={() =>
-                    <AffirmationsPage/>
-                }/>
-          <Route exact path="/playlistpage" render={() =>
-                    <PlaylistPage />
-                } />
+        <Route
+          exact
+          path="/dealbreakerpage"
+          render={() =>
+            user ? (
+              <DealBreakerPage user={this.state.user} />
+            ) : (
+              <Redirect to="/Login" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/metimepage"
+          render={() =>
+            user ? (
+              <MeTimePage user={this.state.user} />
+            ) : (
+              <Redirect to="/Login" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/affirmationpage"
+          render={() =>
+            user ? (
+              <AffirmationsPage user={this.state.user} />
+            ) : (
+              <Redirect to="/Login" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/snakepage"
+          render={() =>
+            user ? (
+              <SnakePage user={this.state.user} />
+            ) : (
+              <Redirect to="/Login" />
+            )
+          }
+        />
       </>
     );
   }

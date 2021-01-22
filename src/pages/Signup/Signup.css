@@ -1,7 +1,49 @@
-.Signup {
+
+.SignUp {
   display: flex;
-  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  flex-flow: column nowrap;
+  width: 100vw;
+  min-height: calc(100vh - 60px);
+  background-color: rgba(27, 189, 175, 0.541);
 }
+
+.white{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: "Helvetica", sans-serif;
+}
+
+#nav-mobile {
+  padding: 0px;
+  margin: 0px;
+}
+
+/*---------------- Media Queries ----------------------------*/
+/*----TABLETS----*/
+@media only screen and (min-width: 43em) {
+  #nav-mobile {
+    /* padding: 0px;
+    margin: 0px; */
+    /* background: aliceblue; */
+  }
+}
+
+/*----DESKTOP (smaller)----*/
+@media only screen and (min-width: 62em) {
+  #nav-mobile {
+    /* background: goldenrod; */
+  }
+}
+
+/*----DESKTOP (larger)----*/
+@media only screen and (min-width: 82em) {
+  #nav-mobile {
+    /* background: aquamarine; */
+  }
+}
+
